@@ -1,2 +1,2 @@
 # exam
-Exam Manage System
+This is a Exam Manage System based on Django.
