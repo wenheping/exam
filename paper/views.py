@@ -10,7 +10,9 @@ def display(request, paper_id):
     return HttpResponse(res % paper_id)
 
 def display2(request):
-    return render(request,'home.html')
+    context={}
+    context['what']='I am a template, my name is what !'
+    return render(request,'home.html',context)
 
 def pdf(request):
     try:
