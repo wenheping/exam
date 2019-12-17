@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Display2</title>
-    <style type="text/css">
-      #heading{
-            width: 100%;
-            height: 10%;
-            background: aqua;
-        }
-        #content{
-            width: 100%;
-            height: 80%;
-            background: #FFD700;
-            float: left;
-        }
-    </style>
+  <title>Display2</title>
 </head>
+
+<style>
+  html{
+    height:100%;
+    }
+  body{
+    height:100%;
+    }
+  #header{
+    width: 100%;
+    height:10%;
+    border:1px;
+    background: aqua;
+    }
+  #content{
+    width: 100%;
+    height:80%;
+    background: #FFD700;
+    float: left;
+    }
+  #footer{
+    width:100%;
+    height:10%;
+    }
+</style>
+
 <body>
-This is my test html for display2 !
-Here I test template:  {{ what  }}
-<div id="heading">I am DIV heading !</div>
+<div id="header">I am DIV heading !</div>
 <div id="content">I am DIV content !</div>
+<div id="footer">
+     This is my test html for display2 !
+     Here I test template:  {{ what  }}
+</div>
 </body>
 </html>
