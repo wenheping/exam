@@ -16,6 +16,7 @@
     height:10%;
     border:1px;
     background: aqua;
+    overflow:hidden;
     }
   #content{
     width: 100%;
@@ -30,7 +31,9 @@
 </style>
 
 <body>
-<div id="header">I am DIV heading !</div>
+<div id="header">I am DIV heading !
+<img src="{{STATIC_URL}}dog.jpg" />
+</div>
 <div id="content">I am DIV content !</div>
 <div id="footer">
      This is my test html for display2 !
