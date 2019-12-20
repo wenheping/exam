@@ -5,9 +5,9 @@ from django.http import FileResponse, Http404
 def index(request):
     return HttpResponse("Hello, Here is paper manage system ")
 
-def display(request, paper_id):
-    res= "Hi, I am paper%s "
-    return HttpResponse(res % paper_id)
+def display(request):
+    context={}
+    return render(request,'tmp.html',context)
 
 def display2(request):
     context={}
