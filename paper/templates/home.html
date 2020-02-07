@@ -31,15 +31,14 @@
   </style>
 
   <body>
-    <div id="header">I am DIV heading !
-      <img src="{{STATIC_URL}}dog.jpg" />
+    <div id="header">
+      I am DIV heading !
     </div>
-    <div id="content">I am PDFObject !</div>
-    <script type="text/javascript" src="{{STATIC_URL}}pdfobject.min.js"></script>
-    <script>
-      PDFObject.embed("{{STATIC_URL}}pdf/paper1.pdf", "content");
-    </script>
-
+    <div id="content">
+      <object data="{{STATIC_URL}}pdf/paper1.pdf#page=2" type="application/pdf" width="100%" height="100%">
+         <p>I am sorry <a href="paper1.pdf"></a></p>
+      </object>
+    </div>
     <div id="footer">
       This is my test html for display2 !
       Here I test template:  {{ what  }}

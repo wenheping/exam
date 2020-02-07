@@ -13,16 +13,3 @@ def display2(request):
     context={}
     context['what']='I am a template, my name is what !'
     return render(request,'home.html',context)
-
-def pdf(request):
-    try:
-        return FileResponse(open('wenfiles/pdf/paper1.pdf', 'rb'), content_type='application/pdf')
-    except FileNotFoundError:
-        raise Http404()
-
-def pdf2(request, pdf_id):
-    try:
-        file_name='wenfiles/pdf/paper'+str(pdf_id)+'.pdf'
-        return FileResponse(open(file_name, 'rb'), content_type='application/pdf')
-    except FileNotFoundError:
-        raise Http404()
