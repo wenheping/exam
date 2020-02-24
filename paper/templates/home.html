@@ -1,48 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Display2</title>
+    <title>Display PDF file:</title>
+    <link rel="stylesheet" href="{{STATIC_URL}}/css/home.css">
   </head>
-
-  <style>
-    html{
-      height:100%;
-      width:100%;
-      }
-    body{
-      height:100%;
-      width:100%;
-      }
-    #header{
-      width: 100%;
-      height:10%;
-      border:1px;
-      background: aqua;
-      overflow:hidden;
-      }
-    #content{
-      width: 100%;
-      height:80%;
-      background: #FFD700;
-      float: left;
-      border-style:solid;
-      border-width:2px;
-      }
-    #left{
-      width: 20%;
-      height: 100%;
-      float: left;
-      }
-    #right{
-      width: 80%;
-      height: 100%;
-      float: left;
-      }
-    #footer{
-      width:100%;
-      height:10%;
-      }
-  </style>
 
   <body>
     <div id="header">
@@ -52,7 +13,7 @@
       <div id="left">
       </div>
       <div id="right">
-      <object data="{{STATIC_URL}}pdf/paper1.pdf#page=2" type="application/pdf" width="100%" height="100%">
+      <object data="{{STATIC_URL}}pdf/{{ file_name }}.pdf#page=2" type="application/pdf" width="100%" height="100%">
          <p>I am sorry <a href="paper1.pdf"></a></p>
       </object>
       </div>
