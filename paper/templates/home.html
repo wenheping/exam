@@ -3,6 +3,7 @@
   <head>
     <title>Display PDF file:</title>
     <link rel="stylesheet" href="{{STATIC_URL}}/css/home.css">
+    <link rel="shotcut icon" href="{{STATIC_URL}}/images/favicon.ico"/>
   </head>
 
   <body>
@@ -11,6 +12,11 @@
     </div>
     <div id="content">
       <div id="left">
+       Please input the file name you want :
+       <form action="/paper/search" method="get">
+        <input type="text" name="q">
+        <input type="submit" value="Get it !">
+       </form>
       </div>
       <div id="right">
       <object data="{{STATIC_URL}}pdf/{{ file_name }}#page=2" type="application/pdf" width="100%" height="100%">
