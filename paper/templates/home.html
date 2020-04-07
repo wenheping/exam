@@ -16,7 +16,10 @@
        <form action="/paper/search" method="get">
         <p> 试卷类型   <input type="text" name="q" size="10" /></p>
         <p> 试卷年级   <input type="text" name="exgrade" size="10" /></p>
-        <p> 试卷时间   <input type="text" name="extime" size="10"/></p>
+        <p> 试卷时间   <select name="extime" size="10">
+          <option value="2020" selected>2020</option>
+          <option value="2019">2019</option>
+          </select> </p>
         <input type="submit" value="查找!">
        </form>
       </div>
