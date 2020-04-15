@@ -15,9 +15,20 @@
        试卷查找 :
        <form action="/paper/search" method="get">
         <p> 试卷类型   <input type="text" name="q" size="10" /></p>
-        <p> 试卷年级   <input type="text" name="exgrade" size="10" /></p>
-        <p> 试卷时间
-          <select name="extime">
+        <p> 试卷年级   
+         <select name="ex_grade">
+            <option value="七上">七年级上</option>
+            <option value="七下">七年级下</option>
+            <option value="八上">八年级上</option>
+            <option value="八下">八年级下</option>
+            <option value="十上">高一年级上</option>
+            <option value="十下">高一年级下</option>
+            <option value="十一上">高二年级上</option>
+            <option value="十一下">高二年级下</option>
+            <option value="十二上">高三年级上</option>
+          </select></p>
+        <p> 试卷年份
+          <select name="exi_year">
             <option value="2020">2020</option>
             <option value="2019">2019</option>
             <option value="2018">2018</option>
