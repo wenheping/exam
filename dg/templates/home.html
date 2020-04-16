@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DG PDF file:</title>
+    <link rel="stylesheet" href="{{STATIC_URL}}/css/home.css">
+    <link rel="shortcut icon" href="{{STATIC_URL}}/images/favicon.ico"/>
+  </head>
+
+  <body>
+    <div id="header">
+      东莞市地理统考试卷管理系统
+    </div>
+    <div id="content">
+      <div id="left">
+       <br/><br/><br/><br/><br/><br/>
+       试卷查找
+       <form action="/dg/search" method="get">
+        <p> 试卷类型   <input type="text" name="q" size="10" /></p>
+        <p> 试卷年级   
+         <select name="ex_grade">
+            <option value="七上">七年级上</option>
+            <option value="七下">七年级下</option>
+            <option value="八上">八年级上</option>
+            <option value="八下">八年级下</option>
+            <option value="十上">高一年级上</option>
+            <option value="十下">高一年级下</option>
+            <option value="十一上">高二年级上</option>
+            <option value="十一下">高二年级下</option>
+            <option value="十二上">高三年级上</option>
+          </select></p>
+        <p> 试卷年份
+          <select name="exi_year">
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+          </select> </p>
+        <input type="submit" value="查找!">
+       </form>
+      </div>
+      <div id="right">
+      <object data="{{STATIC_URL}}pdf/{{ file_name }}#page=2" type="application/pdf" width="100%" height="100%">
+         <p>I am sorry <a href="paper1.pdf"></a></p>
+      </object>
+      </div>
+    </div>
+    <div id="footer">
+      I am footer !
+      Here I test template:  {{ what  }}
+    </div>
+  </body>
+</html>
