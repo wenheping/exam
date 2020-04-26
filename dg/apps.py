@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class PaperConfig(AppConfig):
-    name = 'paper'
+class DgConfig(AppConfig):
+    name = 'dg'

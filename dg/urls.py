@@ -1,10 +1,9 @@
 from django.urls import path,re_path
 
-from . import views, forms
+from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('<int:paper_id>/', views.display, name='display'),
-    re_path(r'^index$', views.index, name='index'),
-    re_path(r'^search$', forms.search_get, name='search_get'),
+    path('<int:dg_id>/', views.display, name='display'),
+    re_path(r'^search$', views.search_get, name='search_get'),
 ]

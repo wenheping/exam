@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['192.168.1.201',
 
 INSTALLED_APPS = [
     'paper.apps.PaperConfig',
+    'dg.apps.DgConfig', 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
