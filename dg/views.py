@@ -4,6 +4,8 @@ from django.http import FileResponse, Http404
 
 import os
 
+from .models import DgBank
+
 pdf_dir='/root/wen/exam/wenfiles/pdf'
 
 def index(request):
@@ -30,21 +32,25 @@ def display(request,dg_id):
 
     return render(request,'dg.html',context)
 
-pdf_dir='/root/wen/exam/wenfiles/pdf'
+pdf_dir='/root/wen/exam/wenfiles/pdf/dg'
 
 def search_get(request):
-    if 'q' in request.GET:
+    try:
+      paper=DgBank.objects.get(dg_grade=request.GET['ex_grade'])
+    except:
+      pdf_name='notfound.pdf'
+      tmp='did not found: '+paper.dg_file+'.pdf'
+    else:
+      pdf_name=paper.dg_file+'.pdf'
+      tmp='found it !'+pdf_name
 
-      tmp=request.GET['ex_grade']
+    pdf_file=os.path.join(pdf_dir,pdf_name)
 
-      pdf_name='paper'+request.GET['q']+'.pdf'
-      pdf_file=os.path.join(pdf_dir,pdf_name)
+    if os.path.exists(pdf_file)==False:
+       pdf_name='notfound.pdf'
 
-      if os.path.exists(pdf_file)==False:
-         pdf_name='notfound.pdf'
-
-      context={}
-      context['file_name']=pdf_name
-      context['what']=tmp
+    context={}
+    context['file_name']=pdf_name
+    context['what']=tmp
 
     return render(request,'dg.html',context)

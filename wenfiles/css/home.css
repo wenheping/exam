@@ -11,7 +11,7 @@
       }
     #header{
       width: 100%;
-      height:8%;
+      height:6%;
       background: #DAA520;
       overflow:hidden;
       border-width:1px; 
@@ -23,7 +23,7 @@
       }
     #content{
       width: 100%;
-      height:88%;
+      height:90%;
       background: #ADADAD;
       float: left;
       border-style:solid;
