@@ -34,6 +34,9 @@ pdf_dir='/root/wen/exam/wenfiles/pdf'
 
 def search_get(request):
     if 'q' in request.GET:
+
+      tmp=request.GET['ex_grade']
+
       pdf_name='paper'+request.GET['q']+'.pdf'
       pdf_file=os.path.join(pdf_dir,pdf_name)
 
@@ -42,6 +45,6 @@ def search_get(request):
 
       context={}
       context['file_name']=pdf_name
-      context['what']='File existis !'+pdf_name
+      context['what']=tmp
 
     return render(request,'dg.html',context)
