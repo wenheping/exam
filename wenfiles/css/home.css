@@ -4,8 +4,10 @@
       }
     body{
       height:100%;
-      width:99%;
+      width:100%;
       background: #ADADAD;
+      margin:0;
+      padding:0;
       }
     #header{
       width: 100%;
@@ -16,6 +18,8 @@
       text-align:center;
       align-items:center;
       font-size:32px;
+      margin:0;
+      padding:0;
       }
     #content{
       width: 100%;
