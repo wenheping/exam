@@ -6,7 +6,8 @@ import os
 
 from .models import DgBank
 
-pdf_dir='/root/wen/exam/wenfiles/pdf/dg/'
+PROJ_DIR = os.path.dirname(os.path.dirname(__file__))
+PDF_DIR=os.path.join(PROJ_DIR,'wenfiles/pdf/dg/')
 
 def index(request):
     pdf_name='start.pdf'
@@ -14,21 +15,6 @@ def index(request):
     context={}
     context['file_name']=pdf_name
     context['what']='File existis !'+pdf_name
-
-    return render(request,'dg.html',context)
-
-def display(request,dg_id):
-    pdf_name='paper'+str(dg_id)+'.pdf'
-    pdf_file=os.path.join(pdf_dir,pdf_name)
-
-    context={}
-
-    if os.path.exists(pdf_file)==True:
-        context['file_name']=pdf_name
-        context['what']='File existis !'+pdf_file
-    else:
-        context['file_name']='notfound.pdf'
-        context['what']='File does not exist !'+pdf_file
 
     return render(request,'dg.html',context)
 
@@ -43,7 +29,7 @@ def search_get(request):
       pdf_name=paper.dg_file+'.pdf'
       tmp='found it !'+file_name
 
-    pdf_file=os.path.join(pdf_dir,pdf_name)
+    pdf_file=os.path.join(PDF_DIR,pdf_name)
 
     if os.path.exists(pdf_file)==False:
        pdf_name='notfound.pdf'
