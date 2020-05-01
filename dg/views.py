@@ -14,29 +14,31 @@ def index(request):
 
     context={}
     context['file_name']=pdf_name
-    context['what']='File existis !'+pdf_name
+    context['what']='Welcome !     '
 
     return render(request,'dg.html',context)
 
 def search_get(request):
-    file_name=request.GET['ex_grade']+request.GET['ex_year']
+    msg=''
+
+    file_name=request.GET['ex_grade']+request.GET['ex_time']
     try:
-      paper=DgBank.objects.get(dg_grade=request.GET['ex_grade'])
+      paper=DgBank.objects.get(dg_grade=request.GET['ex_grade'],dg_time=request.GET['ex_time'])
     except:
       pdf_name='notfound.pdf'
-      tmp='did not found: '+file_name
+      msg='I can not find the file: '+file_name
     else:
       pdf_name=paper.dg_file+'.pdf'
-      tmp='found it !'+file_name
+      msg='I found it !  '+file_name
 
     pdf_file=os.path.join(PDF_DIR,pdf_name)
 
     if os.path.exists(pdf_file)==False:
        pdf_name='notfound.pdf'
-       tmp='did not found: '+file_name
+       msg='The file does not exit: '+file_name
 
     context={}
     context['file_name']=pdf_name
-    context['what']=tmp
+    context['what']=msg
 
     return render(request,'dg.html',context)
