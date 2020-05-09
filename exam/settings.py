@@ -26,14 +26,14 @@ SECRET_KEY = 'g0rsefij9g=)s03h4evp2mt8gwvn5sij9t0q(3kk(lwe-#0g6f'
 DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.1.201',
-		 '192.168.0.202',
 		 '10.155.85.185']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'dg.apps.DgConfig', 
+    'dg.apps.DgConfig',
+    'gaokao.apps.GaokaoConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
