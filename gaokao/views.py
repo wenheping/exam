@@ -8,7 +8,7 @@ PROJ_DIR = os.path.dirname(os.path.dirname(__file__))
 PDF_DIR=os.path.join(PROJ_DIR,'wenfiles/pdf/dg/')
 
 def index(request):
-    pdf_name='start.pdf'
+    pdf_name='start_gk.pdf'
 
     context={}
     context['file_name']=pdf_name
