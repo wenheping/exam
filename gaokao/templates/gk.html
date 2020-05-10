@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>试卷管理系统:</title>
+    <title>高考试卷管理系统:</title>
     <link rel="stylesheet" href="{{STATIC_URL}}/css/home.css">
     <link rel="shortcut icon" href="{{STATIC_URL}}/images/favicon.ico"/>
   </head>
@@ -12,7 +12,7 @@
         <a href="/dg/">回首页</a>
       </div>
       <div id="h_right">
-      东莞市地理统考试卷管理系统
+      高考试卷管理系统
       </div>
     </div>
     <div id="content">
@@ -24,12 +24,12 @@
         <p> 试卷科目  
           <select name="ex_subject">
             <option value="地理">地理</option>
-          </select>
-        <p> 试卷年级   
+          </select></p>
+        <p> 试卷类型
          <select name="ex_grade">
-            <option value="高三上">高三上学期</option>
-            <option value="高二上">高二上学期</option>
-            <option value="高二下">高二下学期</option>
+            <option value="高三上">全国Ⅰ卷</option>
+            <option value="高二上">全国Ⅱ卷</option>
+            <option value="高二下">全国Ⅲ卷</option>
             <option value="高一上">高一上学期</option>
             <option value="高一下">高一下学期</option>
             <option value="初二上">初二上学期</option>
@@ -39,8 +39,8 @@
           </select></p>
         <p> 试卷年份
           <select name="ex_time">
-            <option value="2019-2020学年">2019-2020学年</option>
-            <option value="2018-2019学年">2018-2019学年</option>
+            <option value="2019-2020学年">2019年</option>
+            <option value="2018-2019学年">2018年</option>
           </select> </p>
         <input type="submit" value="查找!">
        </form>
