@@ -21,21 +21,21 @@ def index(request):
 def search_get(request):
     msg=''
 
-    file_name=request.GET['ex_grade']+request.GET['ex_time']
+    file_name=request.GET['ex_time']+request.GET['ex_grade']
     try:
       paper=DgBank.objects.get(dg_grade=request.GET['ex_grade'],dg_time=request.GET['ex_time'])
     except:
       pdf_name='notfound.pdf'
-      msg='I can not find the file: '+file_name
+      msg='对不起，没找到试卷: '+file_name
     else:
       pdf_name=paper.dg_file+'.pdf'
-      msg='I found it !  '+file_name
+      msg='找到了试卷：'+file_name
 
     pdf_file=os.path.join(PDF_DIR,pdf_name)
 
     if os.path.exists(pdf_file)==False:
        pdf_name='notfound.pdf'
-       msg='The file does not exit: '+file_name
+       msg='对不起，试卷文件不存在: '+file_name
 
     context={}
     context['file_name']=pdf_name
