@@ -20,6 +20,7 @@ def index(request):
 
 def search_get(request):
     msg=''
+    docx_name=''
 
     file_name=request.GET['ex_time']+request.GET['ex_grade']
     try:
@@ -29,6 +30,7 @@ def search_get(request):
       msg='对不起，没找到试卷: '+file_name
     else:
       pdf_name=paper.dg_file+'.pdf'
+      docx_name=paper.dg_file+'.docx'
       msg='找到了试卷：'+file_name
 
     pdf_file=os.path.join(PDF_DIR,pdf_name)
@@ -40,5 +42,6 @@ def search_get(request):
     context={}
     context['file_name']=pdf_name
     context['what']=msg
+    context['docx_file_name']=docx_name
 
     return render(request,'dg.html',context)
