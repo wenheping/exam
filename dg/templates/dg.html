@@ -65,7 +65,11 @@
       {{ what  }}
       </div>
       <div id="f_right">
+        {% if docx_file_name %}
         <button type="button" onclick="javascript:window.location.href='{{STATIC_URL}}pdf/dg/{{docx_file_name}}'">Download docx file!</button>
+        {% else %}
+        <button type="button" disabled="disabled">Download docx file!</button>
+        {% endif %}
       </div>
     </div>
   </body>
