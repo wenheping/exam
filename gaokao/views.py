@@ -15,3 +15,6 @@ def index(request):
     context['what']=PROJ_DIR
 
     return render(request,'gk.html',context)
+
+def search_get(request):
+    return HttpResponse("I am searching ...")
