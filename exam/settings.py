@@ -26,7 +26,7 @@ SECRET_KEY = 'g0rsefij9g=)s03h4evp2mt8gwvn5sij9t0q(3kk(lwe-#0g6f'
 DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.1.201',
-		 '10.155.85.185']
+		 '10.155.85.123']
 
 
 # Application definition
@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['192.168.1.201',
 INSTALLED_APPS = [
     'dg.apps.DgConfig',
     'gaokao.apps.GaokaoConfig',
+    'shiti.apps.ShitiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -108,13 +109,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 

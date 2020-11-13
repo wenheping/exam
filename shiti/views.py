@@ -1,6 +1,11 @@
+from django.shortcuts import render
 from django.http import HttpResponse
-
+from django.http import FileResponse, Http404
 
 def index(request):
-    return HttpResponse("Now start the real work !")
+    context={}
+    context['file_name']=''
+    context['what']='Welcome !     '
+
+    return render(request,'shiti.html',context)
 
