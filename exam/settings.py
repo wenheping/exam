@@ -33,7 +33,6 @@ ALLOWED_HOSTS = ['192.168.1.201',
 
 INSTALLED_APPS = [
     'dg.apps.DgConfig',
-    'gaokao.apps.GaokaoConfig',
     'shiti.apps.ShitiConfig',
     'django.contrib.admin',
     'django.contrib.auth',

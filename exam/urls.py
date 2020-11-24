@@ -20,7 +20,6 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('dg/',include('dg.urls')),
-    path('gaokao/',include('gaokao.urls')),
     path('shiti/',include('shiti.urls')),
     path('', views.index, name='index'),
 ]
