@@ -42,14 +42,14 @@
       border-style:solid;
       border-width:1px;
       }
-    #left{
+    #c_left{
       width: 15%;
       height: 100%;
       float: left;
-      text-align:center;
-      font-size:18px;
+      text-align:left;
+      font-size:12px;
       }
-    #right{
+    #c_right{
       width: 85%;
       height: 100%;
       float: left;
