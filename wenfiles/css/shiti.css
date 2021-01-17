@@ -43,14 +43,14 @@
       border-width:1px;
       }
     #c_left{
-      width: 23%;
+      width: 25%;
       height: 100%;
       float: left;
       text-align:left;
       font-size:12px;
       }
     #c_right{
-      width: 77%;
+      width: 75%;
       height: 100%;
       float: left;
       }
