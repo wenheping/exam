@@ -25,14 +25,20 @@ $(function() {
     }
   });
 
-  $('#c_left').click(function() {
-    $.ajax({
+  $('#c_left').on("changed.jstree", function (e, data) {
+   var ref = $('#c_left').jstree(true);
+   var sel = ref.get_selected(false);
+   var totalSel = sel.toString();
+
+   alert(totalSel);
+ 
+   $.ajax({
       type: 'POST',
       url:'api/',
-      data: {'pdata':'Cao ni ma !'},
+      data: {'pdata':totalSel},
       dataType:'json',
       success: function(result) {alert(result['output']);},
-      error:function(result) {alert("I am not OK !");} 
+      error:function(result) {alert("I am not OK !");}
       })
   });
 })

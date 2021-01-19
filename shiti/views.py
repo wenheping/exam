@@ -15,5 +15,7 @@ def index(request):
 @require_POST
 def api(request):
     code = request.POST.get('pdata')
-    output = random.randint(0,100)
+    print(code)
+    tmp = random.randint(0,100)
+    output=code+str(tmp)
     return JsonResponse(data={'output':output})
