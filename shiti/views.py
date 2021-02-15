@@ -8,7 +8,7 @@ import random
 
 def index(request):
     context={}
-    context['file_name']='00000001.pdf'
+    context['file_name']='00000002.pdf'
     context['what']='Welcome !     '
     return render(request,'shiti.html',context)
 
@@ -18,4 +18,5 @@ def api(request):
     print(code)
     tmp = random.randint(0,100)
     output=code+str(tmp)
+    output='00000003'
     return JsonResponse(data={'output':output})
