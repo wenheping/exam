@@ -15,8 +15,7 @@ def index(request):
 @require_POST
 def api(request):
     code = request.POST.get('pdata')
-    print(code)
-    tmp = random.randint(0,100)
-    output=code+str(tmp)
-    output='00000003'
-    return JsonResponse(data={'output':output})
+    if (code.find('mis')>=0):
+      return JsonResponse(data={'output':'click_next'})
+    else:
+      return JsonResponse(data={'output':'00000007'})
