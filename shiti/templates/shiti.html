@@ -30,21 +30,18 @@ $(function() {
    var sel = ref.get_selected(false);
    var totalSel = sel.toString();
 
-   alert(totalSel);
- 
    $.ajax({
       type: 'POST',
       url:'api/',
       data: {'pdata':totalSel},
       dataType:'json',
       success: function(result) {
-        alert(result['output']);
         string1="<object data='{{STATIC_URL}}shiti/2020/"
         string1+=result['output']
         string1+=".pdf#page=1' type='application/pdf' width='100%' height='100%'>"
         $("#c_right").html(string1);
         },
-      error:function(result) {alert("I am not OK !");}
+      error:function(result) {alert("Something is wrong in server !");}
       })
   });
 })

@@ -4,6 +4,8 @@ from django.http import FileResponse, Http404
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse
 
+from . import shengchan
+
 import random
 
 def index(request):
@@ -14,8 +16,11 @@ def index(request):
 
 @require_POST
 def api(request):
+    file_name=''
+
     code = request.POST.get('pdata')
     if (code.find('mis')>=0):
       return JsonResponse(data={'output':'click_next'})
     else:
-      return JsonResponse(data={'output':'00000007'})
+      file_name=shengchan.get_filename(code)
+      return JsonResponse(data={'output':file_name})
