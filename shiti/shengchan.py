@@ -2,9 +2,9 @@ from django.db import models
 from shiti.models import Shiti
 
 def get_filename(zhangjie):
-    q=Shiti.objects.filter(w_zhishidian__startswith=zhangjie)
-    print(q.count())
+    q=Shiti.objects.filter(w_zhishidian__contains=zhangjie)
+
     if q.count()>0 :
-      return "00000003"
+      return q[0].w_timu
     else:
-      return "00000008"
+      return "notfound"
