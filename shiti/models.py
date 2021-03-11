@@ -14,6 +14,7 @@ class Shiti(models.Model):
     w_nian = models.IntegerField(default=2020)
     w_nandu = models.IntegerField(default=3)
     w_zhiliang = models.IntegerField(default=3)
-    w_zhishidian = models.CharField(max_length=40)
+    w_zhishidian1 = models.CharField(max_length=8)
+    w_zhishidian2 = models.CharField(max_length=8,null=True)
+    w_zhishidian3 = models.CharField(max_length=8,null=True)
     w_guanjianci = models.CharField(max_length=30)
-    

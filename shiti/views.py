@@ -10,7 +10,7 @@ import random
 
 def index(request):
     context={}
-    context['file_name']='00000002.pdf'
+    context['file_name']='welcome.pdf'
     context['what']='Welcome !     '
     return render(request,'shiti.html',context)
 
