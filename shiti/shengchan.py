@@ -1,6 +1,8 @@
 from django.db import models
 from shiti.models import Shiti
 
+import fitz
+
 def get_filename(zhangjie):
     q=Shiti.objects.filter(w_zhishidian__contains=zhangjie)
 
