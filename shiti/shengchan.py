@@ -10,3 +10,7 @@ def get_filename(zhangjie):
       return q[0].w_timu
     else:
       return "notfound"
+
+def get_itemnum(zhangjie):
+    q=Shiti.objects.filter(w_zhishidian__contains=zhangjie)
+    return str(q.count)

@@ -6,7 +6,7 @@ from django.http import JsonResponse
 
 from . import shengchan
 
-import random
+import random,json
 
 def index(request):
     context={}
@@ -23,4 +23,5 @@ def api(request):
       return JsonResponse(data={'output':'click_next'})
     else:
       file_name=shengchan.get_filename(code)
-      return JsonResponse(data={'output':file_name})
+      item_num=shengchan.get_itemnum(code)
+      return JsonResponse(data={'output':file_name,'timushu':item_num})
