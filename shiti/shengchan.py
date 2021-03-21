@@ -13,4 +13,5 @@ def get_filename(zhangjie):
 
 def get_itemnum(zhangjie):
     q=Shiti.objects.filter(w_zhishidian__contains=zhangjie)
-    return str(q.count)
+    num=q.count()
+    return str(num)
