@@ -37,10 +37,12 @@ def get_filename(zhangjie):
          pos1=fitz.Rect(80,50,400,500)
          pos2=fitz.Rect(105,50,400,500)
          tmp[i].insert_textbox(pos1,"2020",color=(0,0,1))
-         tmp[i].insert_textbox(pos2,q[i].w_shijuan_lei,fontname="china-ss",color=(0,0,1))
+         tmp[i].insert_textbox(pos2,"年"+q[i].w_shijuan_lei,fontname="china-ss",color=(0,0,1))
          # add the header to tell which year, which district
 
          pos3=fitz.Rect(80,r2+30,595,842)
+         tmp[i].insert_textbox(pos3,"答案：",fontname="china-ss",color=(1,0,0))
+         pos3=fitz.Rect(90,r2+45,595,842)
          tmp[i].insert_textbox(pos3,q[i].w_daan,fontname="china-ss",color=(1,0,0))
          # add the bottom to tell the key and the explation.
 
