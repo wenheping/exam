@@ -36,9 +36,8 @@ $(function() {
       data: {'pdata':totalSel},
       dataType:'json',
       success: function(result) {
-        alert(result['timushu'])
 
-        string1="<object data='{{STATIC_URL}}shiti/2020/"
+        string1="<object data='{{STATIC_URL}}shiti/"
         string1+=result['output']
         string1+=".pdf#page=1' type='application/pdf' width='100%' height='100%'>"
         $("#c_right").html(string1);
@@ -65,7 +64,7 @@ $(function() {
     <div id="content">
       <div id="c_left"></div>
       <div id="c_right">
-      <object data="{{STATIC_URL}}shiti/2020/{{ file_name }}#page=1" type="application/pdf" width="100%" height="100%">
+      <object data="{{STATIC_URL}}shiti/{{ file_name }}#page=1" type="application/pdf" width="100%" height="100%">
       </object>
       </div>
     </div>

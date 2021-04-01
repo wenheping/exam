@@ -3,7 +3,7 @@ from shiti.models import Shiti
 
 import fitz,uuid
 
-pdf_path="/root/wen/exam/wenfiles/shiti/2020/"
+pdf_path="/root/wen/exam/wenfiles/shiti/"
 
 def w_uuid(string_length=10):
     random = str(uuid.uuid4())
@@ -27,11 +27,8 @@ def get_filename(zhangjie):
     if item_num>0 :
       tmp=fitz.open()
       for i in range(item_num):
-         doc=fitz.open(pdf_path+q[i].w_timu+".pdf") # open origin pdf item
+         doc=fitz.open(pdf_path+"2020/"+q[i].w_timu+".pdf") # open origin pdf item
          tmp.insert_pdf(doc)
-#         block_lenth=len(doc[0].getTextBlocks())
-#         r1=doc[0].getTextBlocks()[block_lenth-1][0]
-#         r2=doc[0].getTextBlocks()[block_lenth-1][3] # get the bottom of the text
          r2=w_bottom(doc[0])
 
          pos1=fitz.Rect(80,50,400,500)
@@ -48,8 +45,8 @@ def get_filename(zhangjie):
 
          doc.close()
       file_name=w_uuid()
-      tmp.save(pdf_path+file_name+".pdf")
-      return file_name
+      tmp.save(pdf_path+"tmp/"+file_name+".pdf")
+      return "tmp/"+file_name
     else:
       return "notfound"
 
