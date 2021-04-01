@@ -41,6 +41,12 @@ def get_filename(zhangjie):
          tmp[i].insert_textbox(pos3,"答案：",fontname="china-ss",color=(1,0,0))
          pos3=fitz.Rect(90,r2+45,595,842)
          tmp[i].insert_textbox(pos3,q[i].w_daan,fontname="china-ss",color=(1,0,0))
+
+         r4=w_bottom(tmp[i])
+         pos4=fitz.Rect(80,r4+20,595,842)
+         tmp[i].insert_textbox(pos4,"jiexi",fontname="china-ss",color=(1,0,0))
+         pos4=fitz.Rect(80,r4+35,595,842)
+         tmp[i].insert_textbox(pos4,q[i].w_jiexi,fontname="china-ss",color=(1,0,0))
          # add the bottom to tell the key and the explation.
 
          doc.close()
