@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Shiti(models.Model):
-    w_id = models.IntegerField(default=0)
+    w_id = models.AutoField(primary_key=True)
     w_timu = models.CharField(max_length=8)
     w_daan = models.TextField()
     w_jiexi_lei = models.CharField(max_length=8)
