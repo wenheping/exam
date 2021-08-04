@@ -121,3 +121,5 @@ STATIC_URL = '/wenfiles/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'wenfiles'),
 ]
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
