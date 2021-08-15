@@ -29,13 +29,17 @@ $(function() {
    var ref = $('#c_left').jstree(true);
    var sel = ref.get_selected(false);
    var totalSel = sel.toString();
+   var t1data="OKKK";
+
+   t1data = document.getElementById("check1").checked; 
 
    $.ajax({
       type: 'POST',
       url:'api/',
-      data: {'pdata':totalSel},
+      data: {'pdata':totalSel,'testdata':t1data},
       dataType:'json',
       success: function(result) {
+	alert(result['test2']);
 
         string1="<object data='{{STATIC_URL}}shiti/"
         string1+=result['output']
@@ -43,7 +47,7 @@ $(function() {
         $("#c_right").html(string1);
 
         string2="一共找到"+result['timushu']+"道试题!"
-        $("#f_left").html(string2)
+        $("#f_right").html(string2)
         },
       error:function(result) {alert("Something is wrong in server !");}
       })
@@ -70,7 +74,9 @@ $(function() {
     </div>
     <div id="footer">
       <div id="f_left">
-      {{ what  }}
+        <input id="check1" type="checkbox">Key</input>
+        <input name="check2" type="checkbox">Review</input>
+        <input name="check3" type="checkbox">Docx</input>
       </div>
       <div id="f_right">
         留空!
