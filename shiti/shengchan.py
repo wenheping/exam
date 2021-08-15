@@ -3,7 +3,7 @@ from shiti.models import Shiti
 
 import fitz,uuid
 
-pdf_path="/root/wen/exam/wenfiles/shiti/"
+pdf_path="/home/wen/exam/wenfiles/shiti/"
 
 def w_uuid(string_length=10):
     random = str(uuid.uuid4())
@@ -27,13 +27,13 @@ def get_filename(zhangjie):
     if item_num>0 :
       tmp=fitz.open()
       for i in range(item_num):
-         doc=fitz.open(pdf_path+"2020/"+q[i].w_timu+".pdf") # open origin pdf item
+         doc=fitz.open(pdf_path+str(q[i].w_nian)+"/pdf/"+q[i].w_timu+".pdf") # open origin pdf item
          tmp.insert_pdf(doc)
          r2=w_bottom(doc[0])
 
          pos1=fitz.Rect(80,50,400,500)
          pos2=fitz.Rect(105,50,400,500)
-         tmp[i].insert_textbox(pos1,"2020",color=(0,0,1))
+         tmp[i].insert_textbox(pos1,str(q[i].w_nian),color=(0,0,1))
          tmp[i].insert_textbox(pos2,"年"+q[i].w_shijuan_lei,fontname="china-ss",color=(0,0,1))
          # add the header to tell which year, which district
 
