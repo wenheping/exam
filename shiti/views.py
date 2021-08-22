@@ -19,14 +19,13 @@ def api(request):
     file_name=''
 
     code = request.POST.get('pdata')
-    test1=request.POST.get('testdata')
-
-    print(test1)
+    test1=request.POST.get('t1data')
+    test2=request.POST.get('t2data')
+    test3=request.POST.get('t3data')
 
     if (code.find('mis')>=0):
       return JsonResponse(data={'output':'click_next'})
     else:
-      file_name=shengchan.get_filename(code)
+      file_name=shengchan.get_filename(code,test1,test2)
       item_num=shengchan.get_itemnum(code)
-      test2="I am" +test1
-      return JsonResponse(data={'output':file_name,'timushu':item_num,"test2":test2})
+      return JsonResponse(data={'output':file_name,'timushu':item_num})

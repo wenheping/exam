@@ -20,7 +20,7 @@ def w_bottom(page):
            my_bottom=page.getTextBlocks()[i][3]
     return my_bottom
 
-def get_filename(zhangjie):
+def get_filename(zhangjie,test1,test2):
     q=Shiti.objects.filter(w_zhishidian__contains=zhangjie)
     item_num=q.count()
 
@@ -37,17 +37,20 @@ def get_filename(zhangjie):
          tmp[i].insert_textbox(pos2,"年"+q[i].w_shijuan_lei,fontname="china-ss",color=(0,0,1))
          # add the header to tell which year, which district
 
-         pos3=fitz.Rect(80,r2+30,500,842)
-         tmp[i].insert_textbox(pos3,"答案：",fontname="china-ss",color=(1,0,0))
-         pos3=fitz.Rect(90,r2+45,500,842)
-         tmp[i].insert_textbox(pos3,q[i].w_daan,fontname="china-ss",fontsize=9,color=(1,0,0))
+         if test1=='true':
+           pos3=fitz.Rect(80,r2+30,500,842)
+           tmp[i].insert_textbox(pos3,"答案：",fontname="china-ss",color=(1,0,0))
+           pos3=fitz.Rect(90,r2+45,500,842)
+           tmp[i].insert_textbox(pos3,q[i].w_daan,fontname="china-ss",fontsize=9,color=(1,0,0))
+         # Add the key
 
-         r4=w_bottom(tmp[i])
-         pos4=fitz.Rect(80,r4+20,500,842)
-         tmp[i].insert_textbox(pos4,"解析：",fontname="china-ss",color=(1,0,0))
-         pos4=fitz.Rect(80,r4+35,500,842)
-         tmp[i].insert_textbox(pos4,q[i].w_jiexi,fontname="china-ss",fontsize=9,color=(1,0,0))
-         # add the bottom to tell the key and the explation.
+         if test2=='true':
+           r4=w_bottom(tmp[i])
+           pos4=fitz.Rect(80,r4+20,500,842)
+           tmp[i].insert_textbox(pos4,"解析：",fontname="china-ss",color=(1,0,0))
+           pos4=fitz.Rect(80,r4+35,500,842)
+           tmp[i].insert_textbox(pos4,q[i].w_jiexi,fontname="china-ss",fontsize=9,color=(1,0,0))
+         # add the explation.
 
          doc.close()
       file_name=w_uuid()
