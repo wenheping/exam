@@ -1,9 +1,12 @@
 from django.db import models
 from shiti.models import Shiti
 
+from docxcompose.composer import Composer
+from docx import Document
+
 import fitz,uuid
 
-pdf_path="/home/wen/exam/wenfiles/shiti/"
+file_path="/home/wen/exam/wenfiles/shiti/"
 
 def w_uuid(string_length=10):
     random = str(uuid.uuid4())
@@ -20,41 +23,53 @@ def w_bottom(page):
            my_bottom=page.getTextBlocks()[i][3]
     return my_bottom
 
-def get_filename(zhangjie,test1,test2):
+def get_filename(zhangjie,test1,test2,test3):
     q=Shiti.objects.filter(w_zhishidian__contains=zhangjie)
     item_num=q.count()
 
     if item_num>0 :
-      tmp=fitz.open()
+      tmp_pdf=fitz.open()
+      tmp_docx=Document()
+
       for i in range(item_num):
-         doc=fitz.open(pdf_path+str(q[i].w_nian)+"/pdf/"+q[i].w_timu+".pdf") # open origin pdf item
-         tmp.insert_pdf(doc)
-         r2=w_bottom(doc[0])
+
+         if test3=='true':
+           composer=Composer(tmp_docx)
+           print(file_path+str(q[i].w_nian)+"/docx/"+q[i].w_timu+".docx")
+           doc1=Document(file_path+str(q[i].w_nian)+"/docx/"+q[i].w_timu+".docx")
+           composer.append(doc1)
+
+         mypdf=fitz.open(file_path+str(q[i].w_nian)+"/pdf/"+q[i].w_timu+".pdf") # open origin pdf item
+         tmp_pdf.insert_pdf(mypdf)
+         r2=w_bottom(mypdf[0])
 
          pos1=fitz.Rect(80,50,400,500)
          pos2=fitz.Rect(105,50,400,500)
-         tmp[i].insert_textbox(pos1,str(q[i].w_nian),color=(0,0,1))
-         tmp[i].insert_textbox(pos2,"年"+q[i].w_shijuan_lei,fontname="china-ss",color=(0,0,1))
+         tmp_pdf[i].insert_textbox(pos1,str(q[i].w_nian),color=(0,0,1))
+         tmp_pdf[i].insert_textbox(pos2,"年"+q[i].w_shijuan_lei,fontname="china-ss",color=(0,0,1))
          # add the header to tell which year, which district
 
          if test1=='true':
            pos3=fitz.Rect(80,r2+30,500,842)
-           tmp[i].insert_textbox(pos3,"答案：",fontname="china-ss",color=(1,0,0))
+           tmp_pdf[i].insert_textbox(pos3,"答案：",fontname="china-ss",color=(1,0,0))
            pos3=fitz.Rect(90,r2+45,500,842)
-           tmp[i].insert_textbox(pos3,q[i].w_daan,fontname="china-ss",fontsize=9,color=(1,0,0))
+           tmp_pdf[i].insert_textbox(pos3,q[i].w_daan,fontname="china-ss",fontsize=9,color=(1,0,0))
          # Add the key
 
          if test2=='true':
-           r4=w_bottom(tmp[i])
+           r4=w_bottom(tmp_pdf[i])
            pos4=fitz.Rect(80,r4+20,500,842)
-           tmp[i].insert_textbox(pos4,"解析：",fontname="china-ss",color=(1,0,0))
+           tmp_pdf[i].insert_textbox(pos4,"解析：",fontname="china-ss",color=(1,0,0))
            pos4=fitz.Rect(80,r4+35,500,842)
-           tmp[i].insert_textbox(pos4,q[i].w_jiexi,fontname="china-ss",fontsize=9,color=(1,0,0))
+           tmp_pdf[i].insert_textbox(pos4,q[i].w_jiexi,fontname="china-ss",fontsize=9,color=(1,0,0))
          # add the explation.
 
-         doc.close()
+         mypdf.close()
       file_name=w_uuid()
-      tmp.save(pdf_path+"tmp/"+file_name+".pdf")
+      tmp_pdf.save(file_path+"tmp/"+file_name+".pdf")
+      if test3=='true':
+        composer.save(file_path+"tmp/"+file_name+".docx")
+
       return "tmp/"+file_name
     else:
       return "notfound"

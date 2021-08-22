@@ -26,6 +26,6 @@ def api(request):
     if (code.find('mis')>=0):
       return JsonResponse(data={'output':'click_next'})
     else:
-      file_name=shengchan.get_filename(code,test1,test2)
+      file_name=shengchan.get_filename(code,test1,test2,test3)
       item_num=shengchan.get_itemnum(code)
       return JsonResponse(data={'output':file_name,'timushu':item_num})

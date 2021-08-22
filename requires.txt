@@ -1,3 +1,5 @@
 1 python
 2 django
-3 py-mupdf
+3 pymupdf
+4 docxcompose
+5 python-docx
