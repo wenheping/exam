@@ -63,16 +63,26 @@
       font-size:14px;
       }
     #f_left{
-      width: 50%;
+      width: 33%;
+      height: 100%;
+      float: left;
+      text-align:center;
+      font-size:14px;
+      }
+    #f_center{
+      width: 33%;
       height: 100%;
       float: left;
       text-align:center;
       font-size:14px;
       }
     #f_right{
-      width: 50%;
+      width: 33%;
       height: 100%;
       float: left;
       background: #5C5C5C;
       text-align:center;
-      } 
+      }
+    .blue_word{
+      color:blue;
+      }
