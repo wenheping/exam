@@ -47,12 +47,20 @@ $(function() {
         string1="<object data='{{STATIC_URL}}shiti/"
         string1+=result['output']
         string1+=".pdf#page=1' type='application/pdf' width='100%' height='100%'>"
-        $("#c_right").html(string1);
+        $("#c_right").html(string1)
 
         string2="一共找到"+result['timushu']+"道试题!"
         $("#f_center").html(string2)
+
+        string3="<a href='{{STATIC_URL}}shiti/"
+        string3+=result['output']
+        string3+=".docx'>Download!"
+        alert(string3)
+        $("#f_right").html(string3)
         },
-      error:function(result) {alert("Something is wrong in server !");}
+      error:function(result) {
+        alert("Something is wrong in server !");
+        }
       })
   });
 })
@@ -85,7 +93,7 @@ $(function() {
         Result of the search !
       </div>
       <div id="f_right">
-        <a href={{STATIC_URL}}{{ docx_name }}>Download Docx !</a>
+        <a href="">Download Docx !</a>
       </div>
     </div>
   </body>

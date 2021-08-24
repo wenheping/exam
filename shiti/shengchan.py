@@ -29,13 +29,12 @@ def get_filename(zhangjie,test1,test2,test3):
 
     if item_num>0 :
       tmp_pdf=fitz.open()
-      tmp_docx=Document()
+      tmp_docx=Document(file_path+str(q[0].w_nian)+"/docx/"+q[0].w_timu+".docx")
+      composer=Composer(tmp_docx)
 
       for i in range(item_num):
 
-         if test3=='true':
-           composer=Composer(tmp_docx)
-           print(file_path+str(q[i].w_nian)+"/docx/"+q[i].w_timu+".docx")
+         if test3=='true' and i>=1 :
            doc1=Document(file_path+str(q[i].w_nian)+"/docx/"+q[i].w_timu+".docx")
            composer.append(doc1)
 
