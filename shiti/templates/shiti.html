@@ -52,10 +52,12 @@ $(function() {
         string2="一共找到"+result['timushu']+"道试题!"
         $("#f_center").html(string2)
 
-        string3="<a href='{{STATIC_URL}}shiti/"
-        string3+=result['output']
-        string3+=".docx'>Download!"
-        alert(string3)
+        string3=""
+        if(t3data) {
+          string3="<a href='{{STATIC_URL}}shiti/"
+          string3+=result['docx_name']
+          string3+=".docx'>Download!"
+          }
         $("#f_right").html(string3)
         },
       error:function(result) {
@@ -89,7 +91,7 @@ $(function() {
         <input id="check2" type="checkbox">附解析</input>
         <input id="check3" type="checkbox">附Docx文件</input>
       </div>
-      <div id="f_center">
+      <div id="f_center" class="blue_word">
         Result of the search !
       </div>
       <div id="f_right">
