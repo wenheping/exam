@@ -29,19 +29,33 @@ def get_filename(zhangjie,test1,test2,test3):
 
     if item_num>0 :
       tmp_pdf=fitz.open()
+
+      # add the key and review to the first test item
       tmp_docx=Document(file_path+str(q[0].w_nian)+"/docx/"+q[0].w_timu+".docx")
       msg="("+str(q[0].w_nian)+"year"+q[0].w_shijuan_lei+")"
       para0=tmp_docx.paragraphs[0]
       para_tmp=para0.insert_paragraph_before(msg)
+      if test1=='true' :
+        msg1="daan:\n"+q[0].w_daan
+        tmp_docx.add_paragraph(msg1)
+      if test2=='true' :
+        msg2="jiexi:\n"+q[0].w_jiexi+"\n"
+        tmp_docx.add_paragraph(msg2)
       composer=Composer(tmp_docx)
 
       for i in range(item_num):
 
          if test3=='true' and i>=1 :
            doc1=Document(file_path+str(q[i].w_nian)+"/docx/"+q[i].w_timu+".docx")
-           msg="\n("+str(q[i].w_nian)+"year"+q[i].w_shijuan_lei+")"
+           msg="("+str(q[i].w_nian)+"year"+q[i].w_shijuan_lei+")"
            para0=doc1.paragraphs[0]
            para_tmp=para0.insert_paragraph_before(msg)
+           if test1=='true' :
+             msg1="daan:\n"+q[i].w_daan
+             doc1.add_paragraph(msg1)
+           if test2=='true' :
+             msg2="jiexi:\n"+q[i].w_jiexi+"\n"
+             doc1.add_paragraph(msg2)
            composer.append(doc1)
 
          mypdf=fitz.open(file_path+str(q[i].w_nian)+"/pdf/"+q[i].w_timu+".pdf") # open origin pdf item
