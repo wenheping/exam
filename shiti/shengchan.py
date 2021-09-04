@@ -36,10 +36,10 @@ def get_filename(zhangjie,test1,test2,test3):
       para0=tmp_docx.paragraphs[0]
       para_tmp=para0.insert_paragraph_before(msg)
       if test1=='true' :
-        msg1="daan:\n"+q[0].w_daan
+        msg1="答案：\n"+q[0].w_daan
         tmp_docx.add_paragraph(msg1)
       if test2=='true' :
-        msg2="jiexi:\n"+q[0].w_jiexi+"\n"
+        msg2="解析：\n"+q[0].w_jiexi+"\n"
         tmp_docx.add_paragraph(msg2)
       composer=Composer(tmp_docx)
 
@@ -51,10 +51,10 @@ def get_filename(zhangjie,test1,test2,test3):
            para0=doc1.paragraphs[0]
            para_tmp=para0.insert_paragraph_before(msg)
            if test1=='true' :
-             msg1="daan:\n"+q[i].w_daan
+             msg1="答案：\n"+q[i].w_daan
              doc1.add_paragraph(msg1)
            if test2=='true' :
-             msg2="jiexi:\n"+q[i].w_jiexi+"\n"
+             msg2="解析：\n"+q[i].w_jiexi+"\n"
              doc1.add_paragraph(msg2)
            composer.append(doc1)
 
