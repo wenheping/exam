@@ -30,12 +30,18 @@ def get_filename(zhangjie,test1,test2,test3):
     if item_num>0 :
       tmp_pdf=fitz.open()
       tmp_docx=Document(file_path+str(q[0].w_nian)+"/docx/"+q[0].w_timu+".docx")
+      msg="("+str(q[0].w_nian)+"year"+q[0].w_shijuan_lei+")"
+      para0=tmp_docx.paragraphs[0]
+      para_tmp=para0.insert_paragraph_before(msg)
       composer=Composer(tmp_docx)
 
       for i in range(item_num):
 
          if test3=='true' and i>=1 :
            doc1=Document(file_path+str(q[i].w_nian)+"/docx/"+q[i].w_timu+".docx")
+           msg="\n("+str(q[i].w_nian)+"year"+q[i].w_shijuan_lei+")"
+           para0=doc1.paragraphs[0]
+           para_tmp=para0.insert_paragraph_before(msg)
            composer.append(doc1)
 
          mypdf=fitz.open(file_path+str(q[i].w_nian)+"/pdf/"+q[i].w_timu+".pdf") # open origin pdf item
