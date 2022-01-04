@@ -47,11 +47,11 @@ def get_filename(zhangjie,test1,test2,test3):
 
          if test3=='true' and i>=1 :
            doc1=Document(file_path+str(q[i].w_nian)+"/docx/"+q[i].w_timu+".docx")
-           msg="("+str(q[i].w_nian)+"year"+q[i].w_shijuan_lei+")"
+           msg="("+str(q[i].w_nian)+"年"+q[i].w_shijuan_lei+")"
            para0=doc1.paragraphs[0]
            para_tmp=para0.insert_paragraph_before(msg)
            if test1=='true' :
-             msg1="答案：\n"+q[i].w_daan
+             msg1="答案：\n"+q[i].w_daan+"\n"
              doc1.add_paragraph(msg1)
            if test2=='true' :
              msg2="解析：\n"+q[i].w_jiexi+"\n"
