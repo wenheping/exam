@@ -3,6 +3,7 @@ from shiti.models import Shiti
 
 from docxcompose.composer import Composer
 from docx import Document
+from docx.shared import RGBColor
 
 import fitz,uuid
 
@@ -37,7 +38,8 @@ def get_filename(zhangjie,test1,test2,test3):
       para_tmp=para0.insert_paragraph_before(msg)
       if test1=='true' :
         msg1="\n答案：\n"+q[0].w_daan
-        tmp_docx.add_paragraph(msg1)
+        run1=tmp_docx.add_paragraph().add_run(msg1)
+        run1.font.color.rgb = RGBColor(255,0,0)
       if test2=='true' :
         msg2="解析：\n"+q[0].w_jiexi+"\n"
         tmp_docx.add_paragraph(msg2)
