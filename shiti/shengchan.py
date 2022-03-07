@@ -42,7 +42,8 @@ def get_filename(zhangjie,test1,test2,test3):
         run1.font.color.rgb = RGBColor(255,0,0)
       if test2=='true' :
         msg2="解析：\n"+q[0].w_jiexi+"\n"
-        tmp_docx.add_paragraph(msg2)
+        run2=tmp_docx.add_paragraph().add_run(msg2)
+        run2.font.color.rgb = RGBColor(255,0,0)
       composer=Composer(tmp_docx)
 
       for i in range(item_num):
@@ -53,10 +54,12 @@ def get_filename(zhangjie,test1,test2,test3):
            para_tmp=para0.insert_paragraph_before(msg)
            if test1=='true' :
              msg1="\n答案：\n"+q[i].w_daan+"\n"
-             doc1.add_paragraph(msg1)
+             run1=tmp_docx.add_paragraph().add_run(msg1)
+             run1.font.color.rgb = RGBColor(255,0,0)
            if test2=='true' :
              msg2="解析：\n"+q[i].w_jiexi+"\n"
-             doc1.add_paragraph(msg2)
+             run2=tmp_docx.add_paragraph().add_run(msg2)
+             run2.font.color.rgb = RGBColor(255,0,0)
            composer.append(doc1)
 
          mypdf=fitz.open(file_path+str(q[i].w_nian)+"/pdf/"+q[i].w_timu+".pdf") # open origin pdf item
