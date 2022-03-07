@@ -71,7 +71,7 @@ def get_filename(zhangjie,test1,test2,test3):
 
          if test1=='true':
            pos3=fitz.Rect(80,r2+30,500,842)
-           tmp_pdf[i].insert_textbox(pos3,"答案：",fontname="china-ss",color=(1,0,0))
+           tmp_pdf[i].insert_textbox(pos3,"答案：",fontname="china-ss",fontsize=9,color=(1,0,0))
            pos3=fitz.Rect(90,r2+45,500,842)
            tmp_pdf[i].insert_textbox(pos3,q[i].w_daan,fontname="china-ss",fontsize=9,color=(1,0,0))
          # Add the key
@@ -79,7 +79,7 @@ def get_filename(zhangjie,test1,test2,test3):
          if test2=='true':
            r4=w_bottom(tmp_pdf[i])
            pos4=fitz.Rect(80,r4+20,500,842)
-           tmp_pdf[i].insert_textbox(pos4,"解析：",fontname="china-ss",color=(1,0,0))
+           tmp_pdf[i].insert_textbox(pos4,"解析：",fontname="china-ss",fontsize=9,color=(1,0,0))
            pos4=fitz.Rect(80,r4+35,500,842)
            tmp_pdf[i].insert_textbox(pos4,q[i].w_jiexi,fontname="china-ss",fontsize=9,color=(1,0,0))
          # add the explation.
