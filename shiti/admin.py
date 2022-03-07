@@ -5,7 +5,7 @@ from django.contrib import admin
 from .models import Shiti
 
 class ShitiAdmin(admin.ModelAdmin):
-  list_display=('w_id','w_shijuan_lei','w_shiti_lei','w_nian')
-  list_display_links=('w_id','w_shijuan_lei','w_shiti_lei','w_nian')
+  list_display=('w_id','w_shijuan_lei','w_shiti_lei','w_nian','w_zhishidian')
+  list_display_links=('w_id','w_shijuan_lei','w_shiti_lei','w_nian','w_zhishidian')
 
 admin.site.register(Shiti,ShitiAdmin)

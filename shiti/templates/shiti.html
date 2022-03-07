@@ -71,17 +71,15 @@ $(function() {
 
   <body>
     <div id="header">
-      <div id="h_left">
-        <a href="/shiti/">回首页</a>
-      </div>
-      <div id="h_right">
+      <div id="h_left">ss</div>
+      <div id="h_center">
       高考地理试题管理系统
       </div>
     </div>
     <div id="content">
       <div id="c_left"></div>
       <div id="c_right">
-      <object data="{{STATIC_URL}}shiti/{{ file_name }}#page=1" type="application/pdf" width="100%" height="100%">
+      <object data="{{STATIC_URL}}shiti/{{ file_name }}#page=1&zoom=100" type="application/pdf" width="100%" height="100%">
       </object>
       </div>
     </div>
