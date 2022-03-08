@@ -54,11 +54,11 @@ def get_filename(zhangjie,test1,test2,test3):
            para_tmp=para0.insert_paragraph_before(msg)
            if test1=='true' :
              msg1="\n答案：\n"+q[i].w_daan+"\n"
-             run1=tmp_docx.add_paragraph().add_run(msg1)
+             run1=doc1.add_paragraph().add_run(msg1)
              run1.font.color.rgb = RGBColor(255,0,0)
            if test2=='true' :
              msg2="解析：\n"+q[i].w_jiexi+"\n"
-             run2=tmp_docx.add_paragraph().add_run(msg2)
+             run2=doc1.add_paragraph().add_run(msg2)
              run2.font.color.rgb = RGBColor(255,0,0)
            composer.append(doc1)
 
